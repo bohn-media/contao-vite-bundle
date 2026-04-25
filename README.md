@@ -10,15 +10,10 @@ configuration and Twig functions are available without touching `bundles.php`.
 composer require bohn-media/contao-vite-bundle
 ```
 
-## Configuration
-
-Configure the upstream bundle directly via its native key in
-`config/config.yaml`:
-
-```yaml
-pentatrion_vite:
-  build_directory: build
-```
+The bundle expects Vite to output its build artifacts into `public/build/`
+(the default). Make sure your `vite.config.js` keeps `base: "/build/"` and
+`build.outDir: "public/build"` in sync, otherwise asset URLs and the dev
+proxy route will not resolve.
 
 ## Usage in templates
 
@@ -29,18 +24,9 @@ pentatrion_vite:
 
 ## Resolving Vite asset URLs via `asset()`
 
-To use Symfony's `asset()` Twig function (or Contao's `{{asset::}}` insert
-tag) for Vite-hashed assets, register a named package with pentatrion's
-version strategy:
-
-```yaml
-# config/packages/framework.yaml
-framework:
-  assets:
-    packages:
-      vite:
-        version_strategy: 'Pentatrion\ViteBundle\Asset\ViteAssetVersionStrategy'
-```
+A named asset package `vite` is registered automatically, so you can resolve
+Vite-hashed assets via Symfony's `asset()` Twig function or Contao's
+`{{asset::}}` insert tag:
 
 ```twig
 {{ asset('@/images/favicon.svg', 'vite') }}
