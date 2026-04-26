@@ -1,6 +1,6 @@
 {
     "name": "bohn-media/contao-vite-bundle",
-    "description": "Contao 5 wrapper around pentatrion/vite-bundle. Registers the upstream bundle in Contao Manager Edition so its Twig functions are available out of the box.",
+    "description": "Vite Bundle for Contao 5",
     "type": "contao-bundle",
     "license": "MIT",
     "require": {
