@@ -1,5 +1,5 @@
 {
-    "name": "bohn-media/contao-vite-bundle",
+    "name": "bohnmedia/contao-vite-bundle",
     "description": "Vite Bundle for Contao 5",
     "type": "contao-bundle",
     "license": "MIT",
